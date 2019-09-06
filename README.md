@@ -21,7 +21,7 @@ sdfdsfsff
 
 ![ROC Curve All-NBA](https://user-images.githubusercontent.com/16946556/64449408-aac0a580-d094-11e9-8a02-463cec5b2221.png)
 ------------------------------------------------------------------------------------------------------------------------------------------
-
+PREDICTED
 | 1st  Team     |   2nd Team    |   3rd  Team   |
 | ------------- | ------------- | ------------- |
 | James Harden           | Damian Lillard | Russell Westbrook |
@@ -30,10 +30,12 @@ sdfdsfsff
 | Giannis Antetokounmpo  | Kawhi Leonard  | LeBron James      |  
 | Nikola Jokic           | Rudy Gobert    | Joel Embiid       | 
 
+
+ACTUAL
 | 1st  Team     |   2nd Team    |   3rd  Team   |
 | ------------- | ------------- | ------------- |
-| Content Cell  | Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  | Content Cell  |
+| James Harden           | Damian Lillard | Russell Westbrook |
+| Stephen Curry          | Kyrie Irving   | Kemba Walker      |
+| Paul George            | Kevin Durant   | Blake Griffin     |
+| Giannis Antetokounmpo  | Kawhi Leonard  | LeBron James      |  
+| Nikola Jokic           | Joel Embiid    | Rudy Gobert       | 
