@@ -21,7 +21,7 @@ sdfdsfsff
 
 ![ROC Curve All-NBA](https://user-images.githubusercontent.com/16946556/64449408-aac0a580-d094-11e9-8a02-463cec5b2221.png)
 ------------------------------------------------------------------------------------------------------------------------------------------
-PREDICTED
+
 | 1st  Team     |   2nd Team    |   3rd  Team   |
 | ------------- | ------------- | ------------- |
 | James Harden           | Damian Lillard | Russell Westbrook |
@@ -31,7 +31,7 @@ PREDICTED
 | Nikola Jokic           | Rudy Gobert    | Joel Embiid       | 
 
 
-ACTUAL
+
 | 1st  Team     |   2nd Team    |   3rd  Team   |
 | ------------- | ------------- | ------------- |
 | James Harden           | Damian Lillard | Russell Westbrook |
