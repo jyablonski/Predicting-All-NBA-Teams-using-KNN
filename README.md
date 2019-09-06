@@ -24,5 +24,16 @@ sdfdsfsff
 
 | 1st  Team     |   2nd Team    |   3rd  Team   |
 | ------------- | ------------- | ------------- |
+| James Harden           | Damian Lillard | Russell Westbrook |
+| Stephen Curry          | Kyrie Irving   | Kyle Lowry        |
+| Kevin Durant*          | Paul George*   | LaMarcus Alridge  |
+| Giannis Antetokounmpo  | Kawhi Leonard  | LeBron James      |  
+| Nikola Jokic           | Rudy Gobert    | Joel Embiid       | 
+
+| 1st  Team     |   2nd Team    |   3rd  Team   |
+| ------------- | ------------- | ------------- |
+| Content Cell  | Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  | Content Cell  |
 | Content Cell  | Content Cell  | Content Cell  |
 | Content Cell  | Content Cell  | Content Cell  |
