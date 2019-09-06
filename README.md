@@ -2,6 +2,7 @@
 sdfdsfsff
 ![VORPplot](https://user-images.githubusercontent.com/16946556/64449333-7d73f780-d094-11e9-8b6a-e854a003b828.png)
 
+![PPGplot](https://user-images.githubusercontent.com/16946556/64449398-a4322e00-d094-11e9-81e5-12b8a8e77a52.png)
 
 ![VORPxWSplot](https://user-images.githubusercontent.com/16946556/64449381-967ca880-d094-11e9-95c9-5ae6b8bc3714.png)
 
@@ -14,8 +15,6 @@ sdfdsfsff
 ![WShist](https://user-images.githubusercontent.com/16946556/64449389-a0061080-d094-11e9-83e4-699196c6571c.png)
 
 ![Winshist](https://user-images.githubusercontent.com/16946556/64449396-a1cfd400-d094-11e9-9ea4-30c3e9c4c427.png)
-
-![PPGplot](https://user-images.githubusercontent.com/16946556/64449398-a4322e00-d094-11e9-81e5-12b8a8e77a52.png)
 
 ![ConfusionMatrix](https://user-images.githubusercontent.com/16946556/64449401-a85e4b80-d094-11e9-9fad-f94418b5adda.png)
 
