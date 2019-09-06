@@ -22,13 +22,13 @@ sdfdsfsff
 ![ROC Curve All-NBA](https://user-images.githubusercontent.com/16946556/64449408-aac0a580-d094-11e9-8a02-463cec5b2221.png)
 ------------------------------------------------------------------------------------------------------------------------------------------
 
-| 1st  Team     |   2nd Team    |   3rd  Team   |
-| ------------- | ------------- | ------------- |
-| James Harden (.97)            | Damian Lillard (.74) | Russell Westbrook (.65) |
-| Stephen Curry (.84)           | Kyrie Irving (.68)   | Kyle Lowry (.42)        |
-| Kevin Durant* (1.00)          | Paul George* (1.00)  | LaMarcus Alridge (.55)  |
-| Giannis Antetokounmpo (1.00)  | Kawhi Leonard (.87)  | LeBron James (.52)      |  
-| Nikola Jokic (1.00)           | Rudy Gobert (1.00)   | Joel Embiid (.94)       | 
+| Position      | 1st  Team     |   2nd Team    |   3rd  Team   |
+| ------------- | ------------- | ------------- | ------------- |
+| Guard         | James Harden (.97)            | Damian Lillard (.74) | Russell Westbrook (.65) |
+| Guard         | Stephen Curry (.84)           | Kyrie Irving (.68)   | Kyle Lowry (.42)        |
+| Forward       | Kevin Durant* (1.00)          | Paul George* (1.00)  | LaMarcus Alridge (.55)  |
+| Forward       | Giannis Antetokounmpo (1.00)  | Kawhi Leonard (.87)  | LeBron James (.52)      |  
+| Center        | Nikola Jokic (1.00)           | Rudy Gobert (1.00)   | Joel Embiid (.94)       | 
 
 
 Above is the final KNN Model with the predicted All-NBA probability next to the players names.  Below are the actual results
