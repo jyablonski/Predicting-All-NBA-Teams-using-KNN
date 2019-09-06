@@ -22,7 +22,7 @@ sdfdsfsff
 ![ROC Curve All-NBA](https://user-images.githubusercontent.com/16946556/64449408-aac0a580-d094-11e9-8a02-463cec5b2221.png)
 ------------------------------------------------------------------------------------------------------------------------------------------
 
-| First Team    | Second Team   | Third Team           |        
+| First Header  | Second Header |
 | ------------- | ------------- |
 | Content Cell  | Content Cell  |
 | Content Cell  | Content Cell  |
