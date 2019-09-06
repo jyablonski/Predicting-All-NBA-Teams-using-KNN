@@ -16,6 +16,8 @@ sdfdsfsff
 
 ![Winshist](https://user-images.githubusercontent.com/16946556/64449396-a1cfd400-d094-11e9-9ea4-30c3e9c4c427.png)
 
+![nba corrplot](https://user-images.githubusercontent.com/16946556/64451926-13f6e780-d09a-11e9-85a7-b0ee0ed8b7a9.png)
+
 ![ConfusionMatrix](https://user-images.githubusercontent.com/16946556/64449401-a85e4b80-d094-11e9-9fad-f94418b5adda.png)
 
 ![ROC Curve All-NBA](https://user-images.githubusercontent.com/16946556/64449408-aac0a580-d094-11e9-8a02-463cec5b2221.png)
