@@ -2,7 +2,7 @@
 sdfdsfsff
 ![VORPplot](https://user-images.githubusercontent.com/16946556/64449333-7d73f780-d094-11e9-8b6a-e854a003b828.png)
 
-![PPGplot](https://user-images.githubusercontent.com/16946556/64449398-a4322e00-d094-11e9-81e5-12b8a8e77a52.png)
+![PPGplot](https://user-images.githubusercontent.com/16946556/64451250-a4342d00-d098-11e9-9bca-8d971425bbcc.png)
 
 ![VORPxWSplot](https://user-images.githubusercontent.com/16946556/64449381-967ca880-d094-11e9-95c9-5ae6b8bc3714.png)
 
