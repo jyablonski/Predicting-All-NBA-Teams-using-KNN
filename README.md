@@ -22,6 +22,9 @@ sdfdsfsff
 ![ROC Curve All-NBA](https://user-images.githubusercontent.com/16946556/64449408-aac0a580-d094-11e9-8a02-463cec5b2221.png)
 ------------------------------------------------------------------------------------------------------------------------------------------
 
+Only 2 Guards, 2 Forwards, and 1 Center can make each of the All-NBA Teams.  This means that even if the best 5 players in the NBA are forwards that only 2 of them can be featured on the premiere 1st Team.  Sports Media votes on the All-NBA Team positions, so there is a human element to this analysis that cannot be accounted for (a reporter can easily be biased when voting).
+
+
 | Position      | 1st  Team     |   2nd Team    |   3rd  Team   |
 | ------------- | ------------- | ------------- | ------------- |
 | Guard         | James Harden  (.97)            | Damian Lillard  (.74) | Russell Westbrook  (.65) |
