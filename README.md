@@ -31,6 +31,8 @@ Here is a correlation matrix of the features that I decided to leave in for the 
  
 ------------------------------------------------------------------------------------------------------------------------------------------
 
+Data partition - 70 / 30 split.  k fold cross validation.  preprocess step by scaling all data to z scores to ensure all features are equal in weight.
+
 ![ROC Curve All-NBA](https://user-images.githubusercontent.com/16946556/64449408-aac0a580-d094-11e9-8a02-463cec5b2221.png)
 
 I then printed out a simple ROC Curve, whiched showed that the best K would be equal to 31 neighbors.
