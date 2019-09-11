@@ -28,6 +28,7 @@ Table of all original features vs just the ones that i left in
 ![nba corrplot](https://user-images.githubusercontent.com/16946556/64451926-13f6e780-d09a-11e9-85a7-b0ee0ed8b7a9.png)
 
 Here is a correlation matrix of the features that I decided to leave in for the final model. Team Wins & Overall Seed have a high correlation with each other, as well Total Rebounds & Blocks.  This is totally normal, better teams get more wins and obviously a higher overall seed in their conference, and taller players typically get more rebounds and likely get more blocks as well.  There's an argument to be made that not all 4 of these features need to be included if they kind of overlap with each other, but I believe they're important dimensions to distinguish NBA players and should be left in the model.  
+ 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 ![ROC Curve All-NBA](https://user-images.githubusercontent.com/16946556/64449408-aac0a580-d094-11e9-8a02-463cec5b2221.png)
@@ -41,8 +42,9 @@ Here is the Confusion Matrix from the final model.  I wanted to produce a graphi
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 
-Only 2 Guards, 2 Forwards, and 1 Center can make each of the All-NBA Teams.  This means that even if the best 5 players in the NBA are forwards that only 2 of them can be featured on the premiere 1st Team.  Sports Media votes on the All-NBA Team positions, so there is a human element to this analysis that cannot be accounted for (a reporter can easily be biased when voting).
+Only 2 Guards, 2 Forwards, and 1 Center can make each of the All-NBA Teams. Sports Media votes on the All-NBA Team positions, so there is a human element to this analysis that cannot be accounted for (a reporter can easily be biased when voting).
 
+Final Model
 
 | Position      | 1st  Team     |   2nd Team    |   3rd  Team   |
 | ------------- | ------------- | ------------- | ------------- |
@@ -53,8 +55,8 @@ Only 2 Guards, 2 Forwards, and 1 Center can make each of the All-NBA Teams.  Thi
 | Center        | Nikola Jokic  (1.00)           | Rudy Gobert  (1.00)   | Joel Embiid  (.94)       | 
 
 
-Above is the final KNN Model with the predicted All-NBA probability next to the players names.  Below are the actual results
-
+------------------------------------------------------------------------------------------------------------------------------------------
+The Actual All-NBA Teams
 
 | 1st  Team     |   2nd Team    |   3rd  Team   |
 | ------------- | ------------- | ------------- |
