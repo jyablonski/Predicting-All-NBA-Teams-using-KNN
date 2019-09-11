@@ -23,8 +23,11 @@ sdfdsfsff
 
 ![Winshist](https://user-images.githubusercontent.com/16946556/64449396-a1cfd400-d094-11e9-9ea4-30c3e9c4c427.png)
 ------------------------------------------------------------------------------------------------------------------------------------------
+Table of all original features vs just the ones that i left in
 
 ![nba corrplot](https://user-images.githubusercontent.com/16946556/64451926-13f6e780-d09a-11e9-85a7-b0ee0ed8b7a9.png)
+
+Here is a correlation matrix of the features that I decided to leave in for the final model. Team Wins & Overall Seed have a high correlation with each other, as well Total Rebounds & Blocks.  This is totally normal, better teams get more wins and obviously a higher overall seed in their conference, and taller players typically get more rebounds and likely get more blocks as well.  There's an argument to be made that not all 4 of these features need to be included if they kind of overlap with each other, but I believe they're important dimensions to distinguish NBA players and should be left in the model.  
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 ![ROC Curve All-NBA](https://user-images.githubusercontent.com/16946556/64449408-aac0a580-d094-11e9-8a02-463cec5b2221.png)
