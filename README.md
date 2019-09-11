@@ -27,11 +27,16 @@ sdfdsfsff
 ![nba corrplot](https://user-images.githubusercontent.com/16946556/64451926-13f6e780-d09a-11e9-85a7-b0ee0ed8b7a9.png)
 ------------------------------------------------------------------------------------------------------------------------------------------
 
-![ConfusionMatrix](https://user-images.githubusercontent.com/16946556/64449401-a85e4b80-d094-11e9-9fad-f94418b5adda.png)
+![ROC Curve All-NBA](https://user-images.githubusercontent.com/16946556/64449408-aac0a580-d094-11e9-8a02-463cec5b2221.png)
+
+I then printed out a simple ROC Curve, whiched showed that the best K would be equal to 31 neighbors.
 ------------------------------------------------------------------------------------------------------------------------------------------
 
-![ROC Curve All-NBA](https://user-images.githubusercontent.com/16946556/64449408-aac0a580-d094-11e9-8a02-463cec5b2221.png)
+![ConfusionMatrix](https://user-images.githubusercontent.com/16946556/64449401-a85e4b80-d094-11e9-9fad-f94418b5adda.png)
+
+Here is the Confusion Matrix from the final model.  I wanted to produce a graphical plot for it rather than just a text printout in R but didn't know how, so I googled code on how to produce one and found this which worked out well.
 ------------------------------------------------------------------------------------------------------------------------------------------
+
 
 Only 2 Guards, 2 Forwards, and 1 Center can make each of the All-NBA Teams.  This means that even if the best 5 players in the NBA are forwards that only 2 of them can be featured on the premiere 1st Team.  Sports Media votes on the All-NBA Team positions, so there is a human element to this analysis that cannot be accounted for (a reporter can easily be biased when voting).
 
