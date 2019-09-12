@@ -1,5 +1,5 @@
 # All-NBA-Team-Machine-Learning-Project
-This project outlines my steps taken to produce a KNN Model to predict what the All-NBA Teams would be.
+This project outlines my steps taken to produce a KNN Model to predict what the All-NBA Teams would be.  Because most All-NBA Team players are all stars, I pulled data from basketball-reference using every All-Star or All-NBA player's season.  There were 956 observations in total.  I then built a KNN Model from this dataset and used it to predict the All-NBA Teams from this past years All-Stars given  their stats at the time of the All-Star Break (~February 15th, 2019).  
 
 ![PPGplot](https://user-images.githubusercontent.com/16946556/64451250-a4342d00-d098-11e9-9bca-8d971425bbcc.png)
 ------------------------------------------------------------------------------------------------------------------------------------------
@@ -33,14 +33,14 @@ Here is a correlation matrix of the features that I decided to leave in for the 
 
 **Data partition**
 
-70% training data / 30% testing data split.  K Fold Cross Validation was performed (3 folds, repeated 10 times) to make sure the splits were as balanced as possible.  I also added a preprocessing step by scaling all data to Z-scores to ensure all features are equal in w
+70% training data / 30% testing data split.  K Fold Cross Validation was performed (3 folds, repeated 10 times) to make sure the splits were as balanced as possible.  I also added a preprocessing step by scaling all data to Z-scores to ensure all features are equal in weight.
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 **ROC Curve**
 
 ![ROC Curve All-NBA](https://user-images.githubusercontent.com/16946556/64449408-aac0a580-d094-11e9-8a02-463cec5b2221.png)
 
-I then printed out a simple ROC Curve, whiched showed that the best K would be equal to 31 neighbors.
+I then printed out a simple ROC Curve, which showed that the best K would be equal to 31 neighbors.
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 **Confusion Matrix**
