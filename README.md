@@ -1,6 +1,18 @@
 # All-NBA-Team-Machine-Learning-Project
 This project outlines my steps taken to produce a KNN Model to predict what the All-NBA Teams would be.  Because most All-NBA Team players are all stars, I pulled data from basketball-reference using every All-Star or All-NBA player's season.  There were 956 observations in total.  I then built a KNN Model from this dataset and used it to predict the All-NBA Teams from this past years All-Stars given  their stats at the time of the All-Star Break (~February 15th, 2019).  
 
+| Player Stats  | Player's Team Stats |  Player Advanced Stats   |   All-Star & All-NBA  |
+| ------------- | ------------------- | ------------------------ | --------------------- |
+| G             | Team Wins           |   FG%                    |   WS     |   All-Star |
+| MPG           | Overall Seed        |   3P%                    |   VORP   |   All-NBA  |
+| PPG           |                     |   FT%                    |   BPM    |            |
+| TRB           |
+| AST           |
+| STL           |
+| BLK           |
+
+
+
 ![PPGplot](https://user-images.githubusercontent.com/16946556/64451250-a4342d00-d098-11e9-9bca-8d971425bbcc.png)
 ------------------------------------------------------------------------------------------------------------------------------------------
 
