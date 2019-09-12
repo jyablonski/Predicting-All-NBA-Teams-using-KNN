@@ -25,7 +25,6 @@ This project outlines my steps taken to produce a KNN Model to predict what the 
 ![Winshist](https://user-images.githubusercontent.com/16946556/64449396-a1cfd400-d094-11e9-9ea4-30c3e9c4c427.png)
 ------------------------------------------------------------------------------------------------------------------------------------------
 **Correlation Plot**
-
 ![nba corrplot](https://user-images.githubusercontent.com/16946556/64451926-13f6e780-d09a-11e9-85a7-b0ee0ed8b7a9.png)
 
 Here is a correlation matrix of the features that I decided to leave in for the final model. Team Wins & Overall Seed have a high correlation with each other, as well Total Rebounds & Blocks.  This is totally normal, better teams get more wins and obviously a higher overall seed in their conference, and taller players typically get more rebounds and likely get more blocks as well.  There's an argument to be made that not all 4 of these features need to be included if they kind of overlap with each other, but I believe they're important dimensions to distinguish NBA players and should be left in the model.  
@@ -40,12 +39,14 @@ Here is a correlation matrix of the features that I decided to leave in for the 
 **ROC Curve**
 
 ![ROC Curve All-NBA](https://user-images.githubusercontent.com/16946556/64449408-aac0a580-d094-11e9-8a02-463cec5b2221.png)
+
 I then printed out a simple ROC Curve, whiched showed that the best K would be equal to 31 neighbors.
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 **Confusion Matrix**
 
 ![ConfusionMatrix](https://user-images.githubusercontent.com/16946556/64449401-a85e4b80-d094-11e9-9fad-f94418b5adda.png)
+
 Here is the Confusion Matrix from the final model.  I wanted to produce a graphical plot for it rather than just a text printout in R but didn't know how, so I googled code on how to produce one and found this which worked out well.  Of the 287 observations in the training set, the model correctly predicted 245 of them, with an acccuracy of 85.4% as shown above.  While not perfect this helps show that the model is reasonably accurate and will be a good indicator to help us figure out what the actual All-NBA Teams might be. 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
