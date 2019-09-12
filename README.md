@@ -50,6 +50,7 @@ Below are all of the variables that were collected when pulling the data.  Not a
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 **Correlation Plot**
+
 ![nbacorrplot 2](https://user-images.githubusercontent.com/16946556/64814019-7f87fb80-d557-11e9-84f0-f7136972134e.png)
 
 
