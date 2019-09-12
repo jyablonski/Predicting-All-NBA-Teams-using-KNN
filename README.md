@@ -53,15 +53,25 @@ Below are all of the variables that were collected when pulling the data.  Not a
 ![nbacorrplot 2](https://user-images.githubusercontent.com/16946556/64814019-7f87fb80-d557-11e9-84f0-f7136972134e.png)
 
 
-Here is a correlation matrix of the features that I decided to leave in for the final model. Team Wins & Overall Seed have a high correlation with each other, as well Total Rebounds & Blocks.  This is totally normal, better teams get more wins and obviously a higher overall seed in their conference, and taller players typically get more rebounds and likely get more blocks as well.  There's an argument to be made that not all 4 of these features need to be included if they kind of overlap with each other, but I believe they're important dimensions to distinguish NBA players and should be left in the model.  
+Here is a correlation matrix of the some of the final features to be selected for the model. Team Wins & Overall Seed have a high correlation with each other, as well Total Rebounds & Blocks.  This is totally normal, better teams get more wins and obviously a higher overall seed in their conference, and taller players typically get more rebounds and likely get more blocks as well.  There's an argument to be made that not all 4 of these features need to be included if they kind of overlap with each other, but I believe they're important dimensions to distinguish NBA players and should be left in the model.  
 
-I deleted
+I decided to not use BPM in the final model because it has an extremely high correlation with both VORP and WS.  As shown in the scatterplot, VORP and WS are easily our best indicators of what separates the All-NBA players from the All-Star players.  Leaving BPM in would give us a lot of overlap and is simply not necessary.
+
+Below is a list of the final variables to be used in the KNN Model.  
+
+| Box Score Stats  |  Team Stats         | Advanced Stats       | Selections          |
+| -------------    | ------------------- | ---------------------| ------------------- |
+| PPG              | Team Wins           |  WS                  |   All-Star          |
+| TRB              | Overall Seed        |  VORP                |   All-NBA           |
+| AST              |                     | 
+| STL              |
+| BLK              |
  
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 **Data partition**
 
-70% training data / 30% testing data split.  K Fold Cross Validation was performed (3 folds, repeated 10 times) to make sure the splits were as balanced as possible.  I also added a preprocessing step by scaling all data to Z-scores to ensure all features are equal in weight.
+The dataset was split into a 70% training data / 30% testing data split.  K Fold Cross Validation was performed (3 folds, repeated 10 times) to make sure the splits were as balanced as possible.  I also added a preprocessing step by scaling all data to Z-scores to ensure all features were equal in weight.
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 **ROC Curve**
