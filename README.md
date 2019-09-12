@@ -90,9 +90,9 @@ Here is the Confusion Matrix from the final model.  I wanted to produce a graphi
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 
-Only 2 Guards, 2 Forwards, and 1 Center can make each of the All-NBA Teams. Sports Media votes on the All-NBA Team positions, so there is a human element to this analysis that cannot be accounted for (a reporter can easily be biased when voting).
+Only 2 Guards, 2 Forwards, and 1 Center can make each of the All-NBA Teams. Sports Media votes on the All-NBA Team positions, so there is a human element to this analysis that cannot be accounted for (a reporter can easily have personal bias when voting).  The idea behind this categorical variable problem is the best players in the league (the ones most likely to make an All-NBA 1st Team) should have values of 1.00, and the farther away you get from 1.00 the less likely you are to be an All-NBA player.
 
-Final Model
+Final Model Predictions
 
 | Position      | 1st  Team     |   2nd Team    |   3rd  Team   |
 | ------------- | ------------- | ------------- | ------------- |
@@ -113,3 +113,7 @@ The Actual All-NBA Teams
 | Paul George            | Kevin Durant   | Blake Griffin     |
 | Giannis Antetokounmpo  | Kawhi Leonard  | LeBron James      |  
 | Nikola Jokic           | Joel Embiid    | Rudy Gobert       | 
+
+My KNN Model predicted 13 of the 15 players to make an All-NBA Team, which is 86.67% accurate and close to the 85.4% accuracy shown in the Classification Matrix.  Of these 13 players, 10 were correctly placed into the All-NBA Team that they ended up getting selected into at the end of the Season.  
+
+The insights to be developed from this project are that we can more or less predict All-NBA Teams at the All-Star Break, which is roughly 2 months before the end of the season.  Team Wins & Overall Seed play a huge factor in placement.
