@@ -13,7 +13,7 @@ Below are all of the variables that were collected when pulling the data.  Not a
 | STL              |
 | BLK              |
 
-
+Here are a series of scatterplots & histograms to get a sense of the distributions of these variables.  Of the variables collected, Shooting Stats will be removed and not shown here in this analysis because of the variability & inconsistency of using them to assess Player Value.  
 
 ![PPGplot](https://user-images.githubusercontent.com/16946556/64451250-a4342d00-d098-11e9-9bca-8d971425bbcc.png)
 ------------------------------------------------------------------------------------------------------------------------------------------
