@@ -25,6 +25,9 @@ Here are a series of scatterplots & histograms to get a sense of the distributio
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 ![VORPxWSplot](https://user-images.githubusercontent.com/16946556/64449381-967ca880-d094-11e9-95c9-5ae6b8bc3714.png)
+
+We can clearly see that VORP vs WS gives us the best visualization when trying to separate All-NBA and All-Star players.
+
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 ![BPMplot](https://user-images.githubusercontent.com/16946556/64814117-b6f6a800-d557-11e9-8743-c10733f3cd1f.png)
@@ -46,6 +49,7 @@ Here are a series of scatterplots & histograms to get a sense of the distributio
 
 ![BPMhist](https://user-images.githubusercontent.com/16946556/64814123-b9590200-d557-11e9-8d7c-3297a6b55426.png)
 
+The histograms help show that All-NBA players tend to do everything better while also getting more wins.  Outside knowledge tells us that Sports Media also tends to favor voting for players who are playing on teams winning a lot of games, so we should make sure that Team  Wins & Overall Seed is left in the Final Model.  
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
