@@ -27,7 +27,8 @@ Below are all of the variables that were collected when pulling the data.  Not a
 ![VORPxWSplot](https://user-images.githubusercontent.com/16946556/64449381-967ca880-d094-11e9-95c9-5ae6b8bc3714.png)
 ------------------------------------------------------------------------------------------------------------------------------------------
 
-![BPM plot](https://user-images.githubusercontent.com/16946556/64814002-79921a80-d557-11e9-8f9e-186801999066.png)
+![BPMplot](https://user-images.githubusercontent.com/16946556/64814117-b6f6a800-d557-11e9-8743-c10733f3cd1f.png)
+
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -43,7 +44,8 @@ Below are all of the variables that were collected when pulling the data.  Not a
 ![Winshist](https://user-images.githubusercontent.com/16946556/64449396-a1cfd400-d094-11e9-9ea4-30c3e9c4c427.png)
 ------------------------------------------------------------------------------------------------------------------------------------------
 
-![BPM histogram](https://user-images.githubusercontent.com/16946556/64814011-7c8d0b00-d557-11e9-9d48-38069e081e67.png)
+![BPMhist](https://user-images.githubusercontent.com/16946556/64814123-b9590200-d557-11e9-8d7c-3297a6b55426.png)
+
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
