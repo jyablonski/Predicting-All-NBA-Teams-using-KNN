@@ -27,6 +27,10 @@ Below are all of the variables that were collected when pulling the data.  Not a
 ![VORPxWSplot](https://user-images.githubusercontent.com/16946556/64449381-967ca880-d094-11e9-95c9-5ae6b8bc3714.png)
 ------------------------------------------------------------------------------------------------------------------------------------------
 
+![BPM plot](https://user-images.githubusercontent.com/16946556/64814002-79921a80-d557-11e9-8f9e-186801999066.png)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
 ![PPGhist](https://user-images.githubusercontent.com/16946556/64449384-9aa8c600-d094-11e9-936f-5ad4f48de43a.png)
 ------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -38,8 +42,14 @@ Below are all of the variables that were collected when pulling the data.  Not a
 
 ![Winshist](https://user-images.githubusercontent.com/16946556/64449396-a1cfd400-d094-11e9-9ea4-30c3e9c4c427.png)
 ------------------------------------------------------------------------------------------------------------------------------------------
+
+![BPM histogram](https://user-images.githubusercontent.com/16946556/64814011-7c8d0b00-d557-11e9-9d48-38069e081e67.png)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
 **Correlation Plot**
-![nba corrplot](https://user-images.githubusercontent.com/16946556/64451926-13f6e780-d09a-11e9-85a7-b0ee0ed8b7a9.png)
+![nbacorrplot 2](https://user-images.githubusercontent.com/16946556/64814019-7f87fb80-d557-11e9-84f0-f7136972134e.png)
+
 
 Here is a correlation matrix of the features that I decided to leave in for the final model. Team Wins & Overall Seed have a high correlation with each other, as well Total Rebounds & Blocks.  This is totally normal, better teams get more wins and obviously a higher overall seed in their conference, and taller players typically get more rebounds and likely get more blocks as well.  There's an argument to be made that not all 4 of these features need to be included if they kind of overlap with each other, but I believe they're important dimensions to distinguish NBA players and should be left in the model.  
 
