@@ -4,6 +4,7 @@ library(readxl)
 library(MASS)
 library(pROC)
 library(mlbench)
+library(corrplot)
 
 # Loading in Data ----
 nba <- read_xlsx('historicalnbadata.xlsx')
@@ -23,6 +24,11 @@ nba2 <- nba %>%
   dplyr::select(teamWins, overallSeed, PPG, TRB, AST, STL, BLK, WS, VORP, allStar, allNBA)
 str(nba2)
 
+nbacorr <- nba %>%
+  dplyr::select(teamWins, overallSeed, PPG, TRB, AST, STL, BLK, WS, VORP)
+
+nbacorr2 <- nba %>%
+  dplyr::select(teamWins, overallSeed, PPG, TRB, AST, STL, BLK, WS, VORP, BPM)
 # our all star break test data that we're going to use the final model on.
 nbaAllStarTest <- read_xlsx('allstarbreakdata.xlsx')
 str(nbaAllStarTest3)
@@ -88,6 +94,20 @@ VORPxWSplot <- ggplot(nba, aes(VORP, WS, color = allNBA)) +
         plot.title = element_text(hjust = 0.5), legend.position = 'top')
 VORPxWSplot
 
+# BPM vs Team Wins
+BPMplot <- ggplot(nba, aes(BPM, teamWins, color = allNBA)) +
+  geom_point() +
+  scale_color_manual(name = 'All NBA', values = c('blue', 'red'), labels = c('No', 'Yes')) +
+  scale_x_continuous(breaks = c(-4, -2, 0, 2, 4, 6, 8, 10, 12, 14, 16)) +
+  scale_y_continuous(breaks = c(20, 30, 40, 50, 60, 70)) +
+  labs(title = 'Historical Regular Season Team Wins vs Player BPM', caption = 'Data via basketball-reference.com',
+       y = 'Team Wins', x = 'BPM') +
+  theme(legend.title = element_text(), legend.background = element_rect(fill = 'snow2'),
+        plot.background = element_rect(fill = "snow2"),
+        panel.background = element_rect(fill = 'snow2'), plot.subtitle = element_text(hjust = 0.5),
+        plot.title = element_text(hjust = 0.5), legend.position = 'top')
+BPMplot
+
 # Histograms ----
 # PPG
 PPGhist <- ggplot(nba, aes(x = PPG, fill = allNBA)) +
@@ -139,6 +159,28 @@ Winshist <- ggplot(nba, aes(x = teamWins, fill = allNBA)) +
         plot.title = element_text(hjust = 0.5), legend.position = 'top')
 Winshist
 
+# BPM
+BPMhist <- ggplot(nba, aes(x = BPM, fill = allNBA)) +
+  geom_histogram(alpha=0.5, position="stack") + 
+  scale_fill_manual(name = 'All NBA', values = c('blue', 'red'), labels = c('No', 'Yes')) +
+  scale_x_continuous(breaks = c(-4, -2, 0, 2, 4, 6, 8, 10, 12, 14)) +
+  labs(title = 'BPM Histogram', caption = 'Data via basketball-reference.com',
+       x = 'BPM') +
+  theme(legend.title = element_text(), legend.background = element_rect(fill = 'snow2'),
+        plot.background = element_rect(fill = "snow2"),
+        panel.background = element_rect(fill = 'snow2'), plot.subtitle = element_text(hjust = 0.5),
+        plot.title = element_text(hjust = 0.5), legend.position = 'top')
+BPMhist
+
+
+# correlations ----
+cr1 <- as.matrix(nbacorr)
+corrplotreal <- cor(cr1)
+corrplot(corrplotreal, method = 'circle')
+
+cr2 <- as.matrix(nbacorr2)
+corrplotreal2 <- cor(cr2)
+corrplot(corrplotreal2, method = 'circle')
 # Data Partition ----
 set.seed(1234)
 ind <- sample(2, nrow(nba2), replace = T, prob = c(0.7, 0.3))
@@ -247,16 +289,3 @@ draw_confusion_matrix(cm)
 # Predicting All-NBA teams using pre allstar break data for the 2018-2019 season ----
 pred2 <- predict(fit1, newdata = nbaAllStarTest3, type = 'prob')
 pred2
-
-# saving all the objects ----
-ggsave('VORPhist.png', device = 'png')
-ggsave('VORPplot.png', device = 'png')
-ggsave('VORPxWSplot.png', device = 'png')
-ggsave('Winshist.png', device = 'png')
-ggsave('WShist.png', device = 'png')
-ggsave('WSxPPGplot.png', device = 'png')
-ggsave('PPGplot.png', device = 'png')
-ggsave('PPGhist.png', device = 'png')
-ggsave('PPGplot.png')
-
-ggsave('ConfusionMatrix.png')
