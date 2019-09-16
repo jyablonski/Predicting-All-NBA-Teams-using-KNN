@@ -97,6 +97,8 @@ Here is the Confusion Matrix from the final model.  I wanted to produce a graphi
 
 Only 2 Guards, 2 Forwards, and 1 Center can make each of the All-NBA Teams. Sports Media votes on the All-NBA Team positions, so there is a human element to this analysis that cannot be accounted for (a reporter can easily have personal bias when voting).  The idea behind this categorical variable problem is the best players in the league (the ones most likely to make an All-NBA 1st Team) should have values of 1.00, and the farther away you get from 1.00 the less likely you are to be an All-NBA player.
 
+I took the stats of this year's All-Stars at the All-Star break, and scaled them up to an 82 game season depending on how many games they played up until that point.
+
 Final Model Predictions
 
 | Position      | 1st  Team     |   2nd Team    |   3rd  Team   |
