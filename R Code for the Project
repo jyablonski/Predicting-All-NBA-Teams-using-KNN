@@ -30,7 +30,7 @@ nbacorr <- nba %>%
 nbacorr2 <- nba %>%
   dplyr::select(teamWins, overallSeed, PPG, TRB, AST, STL, BLK, WS, VORP, BPM)
 # our all star break test data that we're going to use the final model on.
-nbaAllStarTest <- read_xlsx('allstarbreakdata.xlsx')
+nbaAllStarTest <- read_xlsx('myallstarbreakstats1.xlsx')
 str(nbaAllStarTest3)
 nbaAllStarTest3 <- nbaAllStarTest %>%
   dplyr::select(teamWins, overallSeed, PPG, TRB, AST, STL, BLK, WS, VORP, allStar, allNBA)
@@ -289,3 +289,6 @@ draw_confusion_matrix(cm)
 # Predicting All-NBA teams using pre allstar break data for the 2018-2019 season ----
 pred2 <- predict(fit1, newdata = nbaAllStarTest3, type = 'prob')
 pred2
+
+ggsave('BPMplot.png')
+ggsave('BPMhist.png')
