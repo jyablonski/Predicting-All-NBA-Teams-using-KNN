@@ -103,11 +103,11 @@ Final Model Predictions
 
 | Position      | 1st  Team     |   2nd Team    |   3rd  Team   |
 | ------------- | ------------- | ------------- | ------------- |
-| Guard         | James Harden  (.97)            | Damian Lillard  (.74) | Russell Westbrook  (.65) |
-| Guard         | Stephen Curry  (.84)           | Kyrie Irving  (.68)   | Kyle Lowry  (.42)        |
-| Forward       | Kevin Durant*  (1.00)          | Paul George*  (1.00)  | LaMarcus Alridge  (.55)  |
-| Forward       | Giannis Antetokounmpo  (1.00)  | Kawhi Leonard  (.87)  | LeBron James  (.52)      |  
-| Center        | Nikola Jokic  (1.00)           | Rudy Gobert  (1.00)   | Joel Embiid  (.94)       | 
+| Guard         | James Harden  (.97)            | Damian Lillard  (.74) | Russell Westbrook  (.68) |
+| Guard         | Stephen Curry  (.87)           | Kyrie Irving  (.77)   | Kyle Lowry  (.45)        |
+| Forward       | Kevin Durant*  (1.00)          | Paul George*  (1.00)  | Anthony Davis (.74)      |
+| Forward       | Giannis Antetokounmpo  (1.00)  | Kawhi Leonard  (1.00) | LeBron James  (.68)      |  
+| Center        | Nikola Jokic  (1.00)           | Rudy Gobert  (1.00)   | Joel Embiid  (.90)       | 
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
