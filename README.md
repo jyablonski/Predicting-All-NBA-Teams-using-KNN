@@ -121,6 +121,6 @@ The Actual All-NBA Teams
 | Giannis Antetokounmpo  | Kawhi Leonard  | LeBron James      |  
 | Nikola Jokic           | Joel Embiid    | Rudy Gobert       | 
 
-My KNN Model predicted 13 of the 15 players to make an All-NBA Team, which is 86.67% accurate and close to the 85.4% accuracy shown in the Classification Matrix.  Of these 13 players, 10 were correctly placed into the All-NBA Team that they ended up getting selected into at the end of the Season.  
+My KNN Model predicted 13 of the 15 players to make an All-NBA Team, which is 86.67% accurate and close to the 85.4% accuracy shown in the Classification Matrix.  Of these 13 players, 9 were correctly placed into the All-NBA Team that they ended up getting selected into at the end of the Season.  
 
 The insights developed from this project are that we can more or less predict All-NBA Teams at the All-Star Break, which is roughly 2 months before the end of the season.  Team Wins & Overall Seed play a huge factor in placement.  Total Rebounds also seem to be weighted a little bit too high.  3 of the top 9 highest ranking players in the model are Centers.  Of all the box score stats, rebounds are easily the most misleading statistic in terms of using it to assess a player's value.  A possible improvement to the model would be to modify the TRB statistic to decrease its importance, or to remove it entirely.
