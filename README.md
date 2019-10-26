@@ -13,6 +13,26 @@ Below are all of the variables that were collected when pulling the data.  Not a
 | STL              |
 | BLK              |
 
+G - Games Played
+MPG - Minutes per Game
+PPG - Points per Game
+TRB - Total Rebounds per Game
+AST - Assists per Game
+STL - Steals per Game
+BLK - Blocks per Game
+
+FG% - Field Goal Percentage of all shots taken
+3P% - 3 Point Percentage
+FT% - Free Throw Percentage
+
+WS - Win Shares
+VORP - Value over Replacement Player
+BPM - Box Plus Minus
+
+All-Star - A 0 represents that the player didn't make the All-Star Team, a 1 represents that they did
+All-NBA - A 0 represents that the player didn't make the All-NBA Team, a 1 represents that they did
+
+------------------------------------------------------------------------------------------------------------------------------------------
 Here are a series of scatterplots & histograms to get a sense of the distributions of these variables.  Of the variables collected, Shooting Stats will be removed and not shown here in this analysis because of the variability & inconsistency of using them to assess Player Value.  
 
 ![PPGplot](https://user-images.githubusercontent.com/16946556/64451250-a4342d00-d098-11e9-9bca-8d971425bbcc.png)
