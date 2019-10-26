@@ -14,22 +14,36 @@ Below are all of the variables that were collected when pulling the data.  Not a
 | BLK              |
 
 G - Games Played
+
 MPG - Minutes per Game
+
 PPG - Points per Game
+
 TRB - Total Rebounds per Game
+
 AST - Assists per Game
+
 STL - Steals per Game
+
 BLK - Blocks per Game
 
+
 FG% - Field Goal Percentage of all shots taken
+
 3P% - 3 Point Percentage
+
 FT% - Free Throw Percentage
 
+
 WS - Win Shares
+
 VORP - Value over Replacement Player
+
 BPM - Box Plus Minus
 
+
 All-Star - A 0 represents that the player didn't make the All-Star Team, a 1 represents that they did
+
 All-NBA - A 0 represents that the player didn't make the All-NBA Team, a 1 represents that they did
 
 ------------------------------------------------------------------------------------------------------------------------------------------
