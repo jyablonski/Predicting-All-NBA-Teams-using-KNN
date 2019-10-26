@@ -1,5 +1,5 @@
 # All-NBA-Team-Machine-Learning-Project
-This project outlines my steps taken to produce a KNN Model to predict what the All-NBA Teams would be.  Because most All-NBA Players are also All-Stars, I pulled data from basketball-reference using every All-Star and/or All-NBA player's season.  There were 956 observations in total.  I then built a KNN Model from this dataset and used it to predict the All-NBA Teams from this past years All-Stars given  their stats at the time of the All-Star Break (~February 15th, 2019).  
+This project outlines my steps taken to produce a KNN Model to predict what the All-NBA Teams would be.  Because most All-NBA Players are also All-Stars, I pulled data from basketball-reference.com using every All-Star and/or All-NBA player's season starting from the 1979-1980 Season.  There were 956 observations in total.  I then built a KNN Model from this dataset and used it to predict the All-NBA Teams from this past years All-Stars given their stats at the time of the All-Star Break (~February 15th, 2019).  
 
 Below are all of the variables that were collected when pulling the data.  Not all of these variables will be used in the machine learning model.
 
@@ -49,7 +49,7 @@ We can clearly see that VORP vs WS gives us the best visualization when trying t
 
 ![BPMhist](https://user-images.githubusercontent.com/16946556/64814123-b9590200-d557-11e9-8d7c-3297a6b55426.png)
 
-The histograms help show that All-NBA players tend to do everything better while also getting more wins.  Outside knowledge tells us that Sports Media also tends to favor voting for players who are playing on teams winning a lot of games, so we should make sure that Team  Wins & Overall Seed is left in the Final Model.  
+The histograms help show that All-NBA players tend to do everything better while also getting more wins.  Outside knowledge tells us that Sports Media also tends to favor voting for players who are playing on winning teams vs teams that are performing poorly, so we should make sure that Team Wins & Overall Seed are left in the Final Model.  
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
