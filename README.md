@@ -158,3 +158,15 @@ The Actual All-NBA Teams
 My KNN Model predicted 13 of the 15 players to make an All-NBA Team, which is 86.67% accurate and close to the 85.4% accuracy shown in the Classification Matrix.  Of these 13 players, 9 were correctly placed into the All-NBA Team that they ended up getting selected into at the end of the Season.  
 
 The insights developed from this project are that we can more or less predict All-NBA Teams at the All-Star Break, which is roughly 2 months before the end of the season.  Team Wins & Overall Seed play a huge factor in placement.  Total Rebounds also seem to be weighted a little bit too high.  3 of the top 9 highest ranking players in the model are Centers.  Of all the box score stats, rebounds are easily the most misleading statistic in terms of using it to assess a player's value.  A possible improvement to the model would be to modify the TRB statistic to decrease its importance, or to remove it entirely.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+2020 Update
+I re-ran this same model using 2020 NBA All Star Break Data.  I made a few tweaks like excluding BPM and VORP to avoid multi-colinearity, but overall the second run seems just as successful as the first.  Below are my predicted top 15 list for who is going to make the All-NBA Team this season.
+
+| Position      | 1st  Team     |   2nd Team    |   3rd  Team   |
+| ------------- | ------------- | ------------- | ------------- |
+| Guard         | James Harden  (.97)           | Damian Lillard  (.74) | Russell Westbrook  (.63) |
+| Guard         | Luka Doncic  (.88)            | Jimmy Butler  (.77)   | Ben Simmons  (.56)       |
+| Forward       | Lebron James  (1.00)          | Anthony Davis  (.95)  | Bam Adebayo (.51)        |
+| Forward       | Giannis Antetokounmpo*  (1.00)| Kawhi Leonard*  (.88) | Khris Middleton  (.44)   |  
+| Center        | Nikola Jokic  (1.00)          | Rudy Gobert  (.65)    | Joel Embiid  (.63)       | 
