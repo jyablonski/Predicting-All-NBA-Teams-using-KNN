@@ -169,5 +169,5 @@ I re-ran this same model using 2020 NBA All Star Break Data.  I made a few tweak
 | Guard         | James Harden  (.97)           | Damian Lillard  (.74) | Russell Westbrook  (.63) |
 | Guard         | Luka Doncic  (.88)            | Jimmy Butler  (.77)   | Ben Simmons  (.56)       |
 | Forward       | Lebron James  (1.00)          | Anthony Davis  (.95)  | Bam Adebayo (.51)        |
-| Forward       | Giannis Antetokounmpo*  (1.00)| Kawhi Leonard*  (.88) | Khris Middleton  (.44)   |  
+| Forward       | Giannis Antetokounmpo  (1.00) | Kawhi Leonard  (.88)  | Khris Middleton  (.44)   |  
 | Center        | Nikola Jokic  (1.00)          | Rudy Gobert  (.65)    | Joel Embiid  (.63)       | 
