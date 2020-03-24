@@ -98,7 +98,9 @@ Here is a correlation matrix of the some of the final features to be selected fo
 
 I decided to not use BPM in the final model because it has an extremely high correlation with both VORP and WS.  As shown in the scatterplot, VORP and WS are easily our best indicators of what separates the All-NBA players from the All-Star players.  Leaving BPM in would give us a lot of overlap and is simply not necessary.
 
-Below is a list of the final variables to be used in the KNN Model.  
+## Model Building
+
+Below is a list of the final variables to be used in the KNN Model.  All of these variables will be used to predict whether a player will be 1 of the 15 players selected to the All-NBA team.
 
 | Box Score Stats  |  Team Stats         | Advanced Stats       | Selections          |
 | -------------    | ------------------- | ---------------------| ------------------- |
@@ -110,7 +112,6 @@ Below is a list of the final variables to be used in the KNN Model.
  
 ------------------------------------------------------------------------------------------------------------------------------------------
 
-## Modeling Building
 
 The dataset was split into a 70% training data / 30% testing data split.  K Fold Cross Validation was performed (3 folds, repeated 10 times) to make sure the splits were as balanced as possible.  I also added a preprocessing step by scaling all data to Z-scores to ensure all features were equal in weight.
 
@@ -162,7 +163,7 @@ My KNN Model predicted 13 of the 15 players to make an All-NBA Team, which is 86
 The insights developed from this project are that we can more or less predict All-NBA Teams at the All-Star Break, which is roughly 2 months before the end of the season.  Team Wins & Overall Seed play a huge factor in placement.  Total Rebounds also seem to be weighted a little bit too high.  3 of the top 9 highest ranking players in the model are Centers.  Of all the box score stats, rebounds are easily the most misleading statistic in terms of using it to assess a player's value.  A possible improvement to the model would be to modify the TRB statistic to decrease its importance, or to remove it entirely.
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-2020 Update
+## 2020 Update
 
 I re-ran this same model using 2020 NBA All Star Break Data.  I made a few tweaks like excluding BPM and VORP to avoid multi-colinearity, but overall the second run seems just as promising as the first (although the actual results aren't available yet).  Below are my predicted top 15 list for who is going to make the All-NBA Team in the 2019-2020 NBA Season.
 
