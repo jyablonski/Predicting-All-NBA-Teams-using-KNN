@@ -43,9 +43,9 @@ VORP - Value over Replacement Player
 BPM - Box Plus Minus
 
 
-All-Star - A 0 represents that the player didn't make the All-Star Team, a 1 represents that they did
+All-Star - A 0 represents that the player didn't make the All-Star Team, a 1 represents that they did.
 
-All-NBA - A 0 represents that the player didn't make the All-NBA Team, a 1 represents that they did
+All-NBA - A 0 represents that the player didn't make the All-NBA Team, a 1 represents that they did.
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 ## Exploratory Data Analysis
