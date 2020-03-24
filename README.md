@@ -1,4 +1,5 @@
-# All-NBA-Team-Machine-Learning-Project
+# All NBA Team Machine Learning Project
+## Introduction
 This project outlines my steps taken to produce a KNN Model to predict what the All-NBA Teams would be.  Because most All-NBA Players are also All-Stars, I pulled data from basketball-reference.com using every All-Star and/or All-NBA player's season starting from the 1979-1980 Season.  There were 956 observations in total.  I then built a KNN Model from this dataset and used it to predict the All-NBA Teams from this past years All-Stars given their stats at the time of the All-Star Break (~February 15th, 2019).  
 
 Below are all of the variables that were collected when pulling the data.  Not all of these variables will be used in the machine learning model.
@@ -47,6 +48,7 @@ All-Star - A 0 represents that the player didn't make the All-Star Team, a 1 rep
 All-NBA - A 0 represents that the player didn't make the All-NBA Team, a 1 represents that they did
 
 ------------------------------------------------------------------------------------------------------------------------------------------
+## Exploratory Data Analysis
 Here are a series of scatterplots & histograms to get a sense of the distributions of these variables.  Of the variables collected, Shooting Stats will be removed and not shown here in this analysis because of the variability & inconsistency of using them to assess Player Value.  
 
 ![PPGplot](https://user-images.githubusercontent.com/16946556/64451250-a4342d00-d098-11e9-9bca-8d971425bbcc.png)
@@ -108,7 +110,7 @@ Below is a list of the final variables to be used in the KNN Model.
  
 ------------------------------------------------------------------------------------------------------------------------------------------
 
-**Data partition**
+## Modeling Building
 
 The dataset was split into a 70% training data / 30% testing data split.  K Fold Cross Validation was performed (3 folds, repeated 10 times) to make sure the splits were as balanced as possible.  I also added a preprocessing step by scaling all data to Z-scores to ensure all features were equal in weight.
 
@@ -127,7 +129,7 @@ I then printed out a simple ROC Curve, which showed that the best K would be equ
 Here is the Confusion Matrix from the final model.  I wanted to produce a graphical plot for it rather than just a text printout in R but didn't know how, so I googled code on how to produce one and found this which worked out well.  Of the 287 observations in the test set, the model correctly predicted 245 of them, with an acccuracy of 85.4% as shown above.  While not perfect this helps show that the model is reasonably accurate and will be a good indicator to help us figure out what the actual All-NBA Teams might be. 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-
+## Results
 
 Only 2 Guards, 2 Forwards, and 1 Center can make each of the All-NBA Teams. Sports Media votes on the All-NBA Team positions, so there is a human element to this analysis that cannot be accounted for (a reporter can easily have personal bias when voting).  The idea behind this categorical variable problem is the best players in the league (the ones most likely to make an All-NBA 1st Team) should have values of 1.00, and the farther away you get from 1.00 the less likely you are to be an All-NBA player.
 
