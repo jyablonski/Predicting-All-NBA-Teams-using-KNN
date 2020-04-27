@@ -165,7 +165,7 @@ The insights developed from this project are that we can more or less predict Al
 ------------------------------------------------------------------------------------------------------------------------------------------
 ## 2020 Update
 
-I re-ran this same model using 2020 NBA All Star Break Data.  I made a few tweaks like excluding BPM and VORP to avoid multi-colinearity, but overall the second run seems just as promising as the first (although the actual results aren't available yet).  Below are my predicted top 15 list for who is going to make the All-NBA Team in the 2019-2020 NBA Season.
+I re-ran this same model using 2020 NBA All Star Break Data.  I made a few tweaks like excluding BPM and VORP to avoid multi-colinearity, but overall the second run seems just as promising as the first (although the actual results aren't available yet).  Below are my predicted top 15 list for who is going to make the All-NBA Team in the 2019-2020 NBA Season using the KNN Model.
 
 | Position      | 1st  Team     |   2nd Team    |   3rd  Team   |
 | ------------- | ------------- | ------------- | ------------- |
@@ -174,3 +174,13 @@ I re-ran this same model using 2020 NBA All Star Break Data.  I made a few tweak
 | Forward       | Lebron James  (1.00)          | Anthony Davis  (.95)  | Bam Adebayo (.51)        |
 | Forward       | Giannis Antetokounmpo  (1.00) | Kawhi Leonard  (.88)  | Khris Middleton  (.44)   |  
 | Center        | Nikola Jokic  (1.00)          | Rudy Gobert  (.65)    | Joel Embiid  (.63)       | 
+
+Here is the SVM Model results, although there aren't any probabilities to showcase with it, simply just yes or no classification.
+
+| Position      | 1st  Team     |   2nd Team    |   3rd  Team   |
+| ------------- | ------------- | ------------- | ------------- |
+| Guard         | James Harden           | Damian Lillard | Russell Westbrook|
+| Guard         | Luka Doncic            | Jimmy Butler   | Ben Simmons      |
+| Forward       | Lebron James           | Anthony Davis  | Pascal Siakam    |
+| Forward       | Giannis Antetokounmpo  | Kawhi Leonard  | Khris Middleton  |  
+| Center        | Nikola Jokic           | Rudy Gobert    | Joel Embiid      | 
