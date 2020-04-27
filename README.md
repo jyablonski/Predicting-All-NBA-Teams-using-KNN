@@ -177,10 +177,10 @@ I re-ran this same model using 2020 NBA All Star Break Data.  I made a few tweak
 
 Here is the SVM Model results, although there aren't any probabilities to showcase with it, simply just yes or no classification.
 
-| Position      | 1st  Team     |   2nd Team    |   3rd  Team   |
-| ------------- | ------------- | ------------- | ------------- |
-| Guard         | James Harden           | Damian Lillard | Russell Westbrook|
-| Guard         | Luka Doncic            | Jimmy Butler   | Ben Simmons      |
+| Position      | 1st  Team     |   2nd Team    |   3rd  Team   |  Leftover   |
+| ------------- | ------------- | ------------- | ------------- | ----------- |
+| Guard         | James Harden           | Damian Lillard | Russell Westbrook|  Kyle Lowry       |
+| Guard         | Luka Doncic            | Jimmy Butler   | Ben Simmons      |  Domantas Sabonis |
 | Forward       | Lebron James           | Anthony Davis  | Pascal Siakam    |
 | Forward       | Giannis Antetokounmpo  | Kawhi Leonard  | Khris Middleton  |  
 | Center        | Nikola Jokic           | Rudy Gobert    | Joel Embiid      | 
