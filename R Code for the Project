@@ -5,12 +5,33 @@ library(MASS)
 library(pROC)
 library(mlbench)
 library(corrplot)
+library(extrafont)
+library(mlr)
+library(parallelMap)
+library(parallel)
+library(rpart.plot)
+library(xgboost)
 
-# Loading in Data ----
+# create system date.
+dateVariable <- Sys.Date()
+dateVariable <-  format(dateVariable, format = "%B %d, %Y")
+
+# custom theme
+theme_jacob <- function () { 
+  theme_minimal(base_size=9, base_family="Gill Sans MT") %+replace% 
+    theme(
+      panel.grid.minor = element_blank(),
+      plot.background = element_rect(fill = 'floralwhite', color = 'floralwhite')
+    )
+}
+
+# Loading in Historical Data ----
 nba <- read_xlsx('historicalnbadata.xlsx')
 nba
+
 head(nba)
 str(nba)
+
 nba$allNBA <- as.factor(nba$allNBA)
 nba$allStar <- as.factor(nba$allStar)
 
@@ -20,9 +41,9 @@ nba1 <- nba %>%
 nba1
 
 # keeping only these dimensions ----
-nba2 <- nba %>%
-  dplyr::select(teamWins, overallSeed, PPG, TRB, AST, STL, BLK, WS, VORP, allStar, allNBA)
-str(nba2)
+nbaKNN <- nba %>%
+  dplyr::select(teamWins, PPG, TRB, AST, STL, BLK, WS, allStar, allNBA)
+str(nbaKNN)
 
 nbacorr <- nba %>%
   dplyr::select(teamWins, overallSeed, PPG, TRB, AST, STL, BLK, WS, VORP)
@@ -30,148 +51,136 @@ nbacorr <- nba %>%
 nbacorr2 <- nba %>%
   dplyr::select(teamWins, overallSeed, PPG, TRB, AST, STL, BLK, WS, VORP, BPM)
 # our all star break test data that we're going to use the final model on.
-nbaAllStarTest <- read_xlsx('myallstarbreakstats1.xlsx')
+nbaAllStarTest <- read_csv('2020allstarbreakdata.csv')
+
 str(nbaAllStarTest3)
 nbaAllStarTest3 <- nbaAllStarTest %>%
-  dplyr::select(teamWins, overallSeed, PPG, TRB, AST, STL, BLK, WS, VORP, allStar, allNBA)
+  dplyr::select(teamWins, PPG, TRB, AST, STL, BLK, WS, allStar, allNBA)
 nbaAllStarTest3$allStar <- as.factor(nbaAllStarTest3$allStar)
 nbaAllStarTest3$allNBA <- as.factor(nbaAllStarTest3$allNBA)
 
+str(nbaAllStarTest4)
+nbaAllStarTest4$allStar <- as.factor(nbaAllStarTest4$allStar)
+
+nbaAllStarTest4 <- nbaAllStarTest3 %>%
+  dplyr::select(teamWins, PPG, TRB, AST, STL, BLK, WS, allStar)
 # Scatterplots ----
 # PPG
-PPGplot <- ggplot(nba, aes(PPG, teamWins, color = allNBA)) +
+ggplot(nba, aes(PPG, teamWins, color = allNBA)) +
   geom_point() +
   scale_color_manual(name = 'All NBA', values = c('blue', 'red'), labels = c('No', 'Yes')) +
   scale_x_continuous(breaks = c(10, 15, 20, 25, 30, 35)) +
   scale_y_continuous(breaks = c(20, 30, 40, 50, 60, 70)) +
   labs(title = 'Historical Regular Season Team Wins vs Player PPG', caption = 'Data via basketball-reference.com',
        y = 'Team Wins', x = 'Points per Game') +
-  theme(legend.title = element_text(), legend.background = element_rect(fill = 'snow2'),
-        plot.background = element_rect(fill = "snow2"),
-        panel.background = element_rect(fill = 'snow2'), plot.subtitle = element_text(hjust = 0.5),
-        plot.title = element_text(hjust = 0.5), legend.position = 'top')
-PPGplot
+  theme_jacob() +
+  theme(plot.title = element_text(hjust = 0.5), legend.position = 'top')
 
 # VORP
-VORPplot <- ggplot(nba, aes(VORP, teamWins, color = allNBA)) +
+ggplot(nba, aes(VORP, teamWins, color = allNBA)) +
   geom_point() +
   scale_color_manual(name = 'All NBA', values = c('blue', 'red'), labels = c('No', 'Yes')) +
   scale_x_continuous(breaks = c(0, 2, 4, 6, 8, 10, 12)) +
   scale_y_continuous(breaks = c(20, 30, 40, 50, 60, 70)) +
   labs(title = 'Historical Regular Season Team Wins vs VORP', caption = 'Data via basketball-reference.com',
        y = 'Team Wins') +
-  theme(legend.title = element_text(), legend.background = element_rect(fill = 'snow2'),
-        plot.background = element_rect(fill = "snow2"),
-        panel.background = element_rect(fill = 'snow2'), plot.subtitle = element_text(hjust = 0.5),
-        plot.title = element_text(hjust = 0.5), legend.position = 'top')
-VORPplot
+  theme_jacob() +
+  theme(plot.title = element_text(hjust = 0.5), legend.position = 'top')
 
 # Win Shares
-WSxPPGplot <- ggplot(nba, aes(PPG, WS, color = allNBA)) +
+ggplot(nba, aes(PPG, WS, color = allNBA)) +
   geom_point() +
   scale_color_manual(name = 'All NBA', values = c('blue', 'red'), labels = c('No', 'Yes')) +
   scale_x_continuous(breaks = c(10, 15, 20, 25, 30, 35)) +
   scale_y_continuous(breaks = c(0, 5, 10, 15, 20)) +
   labs(title = 'Historical Regular Season Win Shares vs PPG', caption = 'Data via basketball-reference.com',
        y = 'Win Shares', x = 'Points per Game') +
-  theme(legend.title = element_text(), legend.background = element_rect(fill = 'snow2'),
-        plot.background = element_rect(fill = "snow2"),
-        panel.background = element_rect(fill = 'snow2'), plot.subtitle = element_text(hjust = 0.5),
-        plot.title = element_text(hjust = 0.5), legend.position = 'top')
-WSxPPGplot
+  theme_jacob() +
+  theme(plot.title = element_text(hjust = 0.5), legend.position = 'top')
 
-# VORP vs Win Shares
-VORPxWSplot <- ggplot(nba, aes(VORP, WS, color = allNBA)) +
+# VORP vs Win Shares - should only include 1 of these in the model to avoid multicolinearity.
+ggplot(nba, aes(VORP, WS, color = allNBA)) +
   geom_point() +
   scale_color_manual(name = 'All NBA', values = c('blue', 'red'), labels = c('No', 'Yes')) +
   scale_x_continuous(breaks = c(0, 2, 4, 6, 8, 10, 12)) +
   scale_y_continuous(breaks = c(0, 5, 10, 15, 20)) +
   labs(title = 'Historical Regular Season Win Shares vs VORP', caption = 'Data via basketball-reference.com',
        y = 'Win Shares') +
-  theme(legend.title = element_text(), legend.background = element_rect(fill = 'snow2'),
-        plot.background = element_rect(fill = "snow2"),
-        panel.background = element_rect(fill = 'snow2'), plot.subtitle = element_text(hjust = 0.5),
-        plot.title = element_text(hjust = 0.5), legend.position = 'top')
-VORPxWSplot
+  theme_jacob() +
+  theme(plot.title = element_text(hjust = 0.5), legend.position = 'top')
 
 # BPM vs Team Wins
-BPMplot <- ggplot(nba, aes(BPM, teamWins, color = allNBA)) +
+ggplot(nba, aes(BPM, teamWins, color = allNBA)) +
   geom_point() +
   scale_color_manual(name = 'All NBA', values = c('blue', 'red'), labels = c('No', 'Yes')) +
   scale_x_continuous(breaks = c(-4, -2, 0, 2, 4, 6, 8, 10, 12, 14, 16)) +
   scale_y_continuous(breaks = c(20, 30, 40, 50, 60, 70)) +
   labs(title = 'Historical Regular Season Team Wins vs Player BPM', caption = 'Data via basketball-reference.com',
        y = 'Team Wins', x = 'BPM') +
-  theme(legend.title = element_text(), legend.background = element_rect(fill = 'snow2'),
-        plot.background = element_rect(fill = "snow2"),
-        panel.background = element_rect(fill = 'snow2'), plot.subtitle = element_text(hjust = 0.5),
-        plot.title = element_text(hjust = 0.5), legend.position = 'top')
-BPMplot
+  theme_jacob() +
+  theme(plot.title = element_text(hjust = 0.5), legend.position = 'top')
+
+# Team Wins vs Overall Seed - should only include 1 of these in the model to avoid multicolinearity.
+ggplot(nba, aes(overallSeed, teamWins, color = allNBA)) +
+  geom_point() +
+  scale_color_manual(name = 'All NBA', values = c('blue', 'red'), labels = c('No', 'Yes')) +
+  labs(title = 'Historical Regular Season Team Wins vs Player BPM', caption = 'Data via basketball-reference.com',
+       y = 'Team Wins', x = 'Overall Seed') +
+  theme_jacob() +
+  theme(plot.title = element_text(hjust = 0.5), legend.position = 'top')
+
 
 # Histograms ----
 # PPG
-PPGhist <- ggplot(nba, aes(x = PPG, fill = allNBA)) +
+ggplot(nba, aes(x = PPG, fill = allNBA)) +
   geom_histogram(alpha=0.5, position="stack") + 
   scale_fill_manual(name = 'All NBA', values = c('blue', 'red'), labels = c('No', 'Yes')) +
   labs(title = 'PPG Histogram', caption = 'Data via basketball-reference.com',
        x = 'Points per Game') +
-  theme(legend.title = element_text(), legend.background = element_rect(fill = 'snow2'),
-        plot.background = element_rect(fill = "snow2"),
-        panel.background = element_rect(fill = 'snow2'), plot.subtitle = element_text(hjust = 0.5),
-        plot.title = element_text(hjust = 0.5), legend.position = 'top')
-PPGhist
+  theme_jacob() +
+  theme(plot.title = element_text(hjust = 0.5), legend.position = 'top')
 
 # VORP
-VORPhist <- ggplot(nba, aes(x = VORP, fill = allNBA)) +
+ggplot(nba, aes(x = VORP, fill = allNBA)) +
   geom_histogram(alpha=0.5, position="stack") + 
   scale_fill_manual(name = 'All NBA', values = c('blue', 'red'), labels = c('No', 'Yes')) +
   scale_x_continuous(breaks = c(0, 2, 4, 6, 8, 10, 12)) +
   labs(title = 'VORP Histogram', caption = 'Data via basketball-reference.com') +
-  theme(legend.title = element_text(), legend.background = element_rect(fill = 'snow2'),
-        plot.background = element_rect(fill = "snow2"),
-        panel.background = element_rect(fill = 'snow2'), plot.subtitle = element_text(hjust = 0.5),
-        plot.title = element_text(hjust = 0.5), legend.position = 'top')
-VORPhist
+  theme_jacob() +
+  theme(plot.title = element_text(hjust = 0.5), legend.position = 'top')
+
 
 # Win Shares
-WShist <- ggplot(nba, aes(x = WS, fill = allNBA)) +
+ggplot(nba, aes(x = WS, fill = allNBA)) +
   geom_histogram(alpha=0.5, position="stack") + 
   scale_fill_manual(name = 'All NBA', values = c('blue', 'red'), labels = c('No', 'Yes')) +
   scale_x_continuous(breaks = c(0, 5, 10, 15, 20)) +
   labs(title = 'Win Shares Histogram', caption = 'Data via basketball-reference.com',
        x = 'Win Shares') +
-  theme(legend.title = element_text(), legend.background = element_rect(fill = 'snow2'),
-        plot.background = element_rect(fill = "snow2"),
-        panel.background = element_rect(fill = 'snow2'), plot.subtitle = element_text(hjust = 0.5),
-        plot.title = element_text(hjust = 0.5), legend.position = 'top')
-WShist
+  theme_jacob() +
+  theme(plot.title = element_text(hjust = 0.5), legend.position = 'top')
+
 
 # Team Wins 
-Winshist <- ggplot(nba, aes(x = teamWins, fill = allNBA)) +
+ggplot(nba, aes(x = teamWins, fill = allNBA)) +
   geom_histogram(alpha=0.5, position="stack") + 
   scale_fill_manual(name = 'All NBA', values = c('blue', 'red'), labels = c('No', 'Yes')) +
   scale_x_continuous(breaks = c(20, 30, 40, 50, 60, 70)) +
   labs(title = 'Team Wins Histogram', caption = 'Data via basketball-reference.com',
        x = 'Team Wins') +
-  theme(legend.title = element_text(), legend.background = element_rect(fill = 'snow2'),
-        plot.background = element_rect(fill = "snow2"),
-        panel.background = element_rect(fill = 'snow2'), plot.subtitle = element_text(hjust = 0.5),
-        plot.title = element_text(hjust = 0.5), legend.position = 'top')
-Winshist
+  theme_jacob() +
+  theme(plot.title = element_text(hjust = 0.5), legend.position = 'top')
+
 
 # BPM
-BPMhist <- ggplot(nba, aes(x = BPM, fill = allNBA)) +
+ggplot(nba, aes(x = BPM, fill = allNBA)) +
   geom_histogram(alpha=0.5, position="stack") + 
   scale_fill_manual(name = 'All NBA', values = c('blue', 'red'), labels = c('No', 'Yes')) +
   scale_x_continuous(breaks = c(-4, -2, 0, 2, 4, 6, 8, 10, 12, 14)) +
   labs(title = 'BPM Histogram', caption = 'Data via basketball-reference.com',
        x = 'BPM') +
-  theme(legend.title = element_text(), legend.background = element_rect(fill = 'snow2'),
-        plot.background = element_rect(fill = "snow2"),
-        panel.background = element_rect(fill = 'snow2'), plot.subtitle = element_text(hjust = 0.5),
-        plot.title = element_text(hjust = 0.5), legend.position = 'top')
-BPMhist
-
+  theme_jacob() +
+  theme(plot.title = element_text(hjust = 0.5), legend.position = 'top')
 
 # correlations ----
 cr1 <- as.matrix(nbacorr)
@@ -181,44 +190,46 @@ corrplot(corrplotreal, method = 'circle')
 cr2 <- as.matrix(nbacorr2)
 corrplotreal2 <- cor(cr2)
 corrplot(corrplotreal2, method = 'circle')
+
 # Data Partition ----
 set.seed(1234)
-ind <- sample(2, nrow(nba2), replace = T, prob = c(0.7, 0.3))
-training <- nba2[ind == 1,]
-test <- nba2[ind == 2,]
+ind <- sample(2, nrow(nbaKNN), replace = T, prob = c(0.7, 0.3))
+training <- nbaKNN[ind == 1,]
+test <- nbaKNN[ind == 2,]
 
-# KNN ----
+# KNN in Caret ----
 # changing 0 and 1 for values of all-nba and allstar to 'No' and 'Yes' to avoid getting an error when executing
-levels(nba2$allNBA) <- c('No', 'Yes')
+levels(nbaKNN$allNBA) <- c('No', 'Yes')
 levels(test$allNBA) <- c('No', 'Yes')
 levels(training$allNBA) <- c('No', 'Yes')
 
 trControl1 <- trainControl(method = 'repeatedcv',
-                          number = 10,
-                          repeats = 3,
-                          classProbs = TRUE,
-                          summaryFunction = twoClassSummary)
+                           number = 10,
+                           repeats = 3,
+                           classProbs = TRUE,
+                           summaryFunction = twoClassSummary)
 set.seed(222)
 fit1 <- train(allNBA ~ .,
-             data = nba2,
-             method = 'knn',
-             tuneLength = 20,
-             trControl = trControl1,
-             preProc = c('center', 'scale'),
-             metric = 'ROC',
-             tuneGrid = expand.grid(k = 1:60))
+              data = nbaKNN,
+              method = 'knn',
+              tuneLength = 20,
+              trControl = trControl1,
+              preProc = c('center', 'scale'),
+              metric = 'ROC',
+              tuneGrid = expand.grid(k = 1:60))
 
 # Model Performance ----
 fit1
 
 # ROC Curve
 plot(fit1)
+ggplot(fit1) + theme_jacob()
 
 # Confusion Matrix with the predicted vs actual values
 pred1 <- predict(fit1, newdata = test)
 pred1
 cm <- confusionMatrix(pred1, test$allNBA) #85.4% accuracy
-confusionMatrix(pred1, test$allNBA) #85.4% accuracy
+confusionMatrix(pred1, test$allNBA) #85.52% accuracy
 
 # confusion matrix table creation code ----
 # found from https://stackoverflow.com/questions/23891140/r-how-to-visualize-confusion-matrix-using-the-caret-package
@@ -286,9 +297,76 @@ draw_confusion_matrix <- function(cm) {
 
 draw_confusion_matrix(cm)
 
-# Predicting All-NBA teams using pre allstar break data for the 2018-2019 season ----
+# Predicting All-NBA teams using pre allstar break data for the 2018-2019 season
 pred2 <- predict(fit1, newdata = nbaAllStarTest3, type = 'prob')
 pred2
 
-ggsave('BPMplot.png')
-ggsave('BPMhist.png')
+players <- nbaAllStarTest$Player
+players <- as.data.frame(players)
+
+players$probability <- pred2$Yes
+players <- players %>%
+  arrange(desc(probability))
+players
+
+write_csv(players, '2020All-NBA Predictions.csv')
+
+# Suppoer Vector Machines in mlr ---- 
+# step 1 create task (specify data and dependent variable) and learner (what model building tool are you going to use)
+spamTask <- makeClassifTask(data = nbaKNN, target = "allNBA")
+svm <- makeLearner("classif.svm")
+
+# step 2 hyperparameters
+getParamSet("classif.svm")
+getParamSet("classif.svm")$pars$kernel$values
+
+kernels <- c("polynomial", "radial", "sigmoid")
+svmParamSpace <- makeParamSet(
+  makeDiscreteParam("kernel", values = kernels),
+  makeIntegerParam("degree", lower = 1, upper = 3),
+  makeNumericParam("cost", lower = 0.1, upper = 10),
+  makeNumericParam("gamma", lower = 0.1, 10))
+
+randSearch <- makeTuneControlRandom(maxit = 20) # random search 20 times.
+cvForTuning <- makeResampleDesc("Holdout", split = 2/3) # cross validation procedure.
+
+# step 3 stating multisearch - multithreading using all cores of our cpu to speed this process up.  
+parallelStartSocket(cpus = detectCores())
+tunedSvmPars <- tuneParams("classif.svm", task = spamTask,
+                           resampling = cvForTuning,
+                           par.set = svmParamSpace,
+                           control = randSearch)
+
+parallelStop()
+tunedSvmPars
+tunedSvmPars$x # our best model
+
+# step 4 starting the model with the best hyperparameter results from random search
+tunedSvm <- setHyperPars(makeLearner("classif.svm"),
+                         par.vals = tunedSvmPars$x)
+
+tunedSvmModel <- train(tunedSvm, spamTask)
+
+# step 5 cross validation
+outer <- makeResampleDesc("CV", iters = 3) # 3 fold cross validation
+svmWrapper <- makeTuneWrapper("classif.svm", resampling = cvForTuning,
+                              par.set = svmParamSpace,
+                              control = randSearch)
+parallelStartSocket(cpus = detectCores())
+cvWithTuning <- resample(svmWrapper, spamTask, resampling = outer)
+parallelStop()
+
+cvWithTuning # mmce (misclassification error rate) is 0.19 - we are correctly classifying ~ 81% of cases.
+
+# step 6 predict 2020 all nba with SVM 
+pred3 <- predict(tunedSvmModel, newdata = nbaAllStarTest4)
+getPredictionResponse(pred3)
+
+SVMplayers <- nbaAllStarTest$Player
+SVMplayers <- as.data.frame(SVMplayers)
+
+SVMplayers$probability <- getPredictionResponse(pred3)
+
+SVMplayers <- SVMplayers %>%
+  arrange(desc(probability))
+SVMplayers # top 15 only - looks to be 17 players are deserving of all-nba in 2020.
