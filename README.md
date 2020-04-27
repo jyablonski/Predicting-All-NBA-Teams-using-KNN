@@ -1,6 +1,6 @@
 # All NBA Team Machine Learning Project
 ## Introduction
-This project outlines my steps taken to produce a KNN Model to predict what the All-NBA Teams would be.  Because most All-NBA Players are also All-Stars, I pulled data from basketball-reference.com using every All-Star and/or All-NBA player's season starting from the 1979-1980 Season.  There were 956 observations in total.  I then built a KNN Model from this dataset and used it to predict the All-NBA Teams from this past years All-Stars given their stats at the time of the All-Star Break (~February 15th, 2019).  
+This project outlines my steps taken to produce KNN & SVM Models to predict what the All-NBA Teams would be in the 2019 and 2020 NBA Seasons.  Because most All-NBA Players are also All-Stars, I pulled data from basketball-reference.com using every All-Star and/or All-NBA player's season starting from the 1979-1980 Season.  There were 956 observations in total.  I then built KNN & SVM Models from this dataset and used it to predict the All-NBA Teams from the past 2 seasons given their All-Star Break stats to get an idea.  All-NBA Teams are simply the top 15 players from that season of the NBA.  It was a fun project that allowed me to work with machine learning to produce valuable and insightful models.  
 
 Below are all of the variables that were collected when pulling the data.  Not all of these variables will be used in the machine learning model.
 
