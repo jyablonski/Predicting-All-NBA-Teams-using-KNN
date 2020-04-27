@@ -175,7 +175,7 @@ I re-ran this same model using 2020 NBA All Star Break Data.  I made a few tweak
 | Forward       | Giannis Antetokounmpo  (1.00) | Kawhi Leonard  (.88)  | Khris Middleton  (.44)   |  
 | Center        | Nikola Jokic  (1.00)          | Rudy Gobert  (.65)    | Joel Embiid  (.63)       | 
 
-Here is the SVM Model results, although there aren't any probabilities to showcase with it, simply just yes or no classification.
+Here are the SVM Model results, although there aren't any probabilities to showcase with it, simply just yes or no classification.  The Model predicted 17 players to make the All-NBA Team but the cutoff is 15, suggesting that some quality players that are probably deserving of the award are going to be left out.
 
 | Position      | 1st  Team     |   2nd Team    |   3rd  Team   |  Leftover   |
 | ------------- | ------------- | ------------- | ------------- | ----------- |
